@@ -5,7 +5,7 @@ int lines = 0;
 %}
 
 %%
-
+400_organ1  {printf("organ1\n");}
 [a-zA-Z]+	{ words++; chars += strlen(yytext); }
 \n		{ chars++; lines++; }
 .		{ chars++; }
@@ -15,5 +15,5 @@ int lines = 0;
 main()
 {
   yylex();
-  printf("%8d%8d%8d\n", lines, words, chars);
+  printf(" %8d line  %8d word  %8d chars\n", lines, words, chars);
 }
