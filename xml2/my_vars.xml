@@ -1,0 +1,87 @@
+<include>
+
+  <!-- codecs -->
+  <X-PRE-PROCESS cmd="set" data="global_codecs=PCMA,GSM"/>
+  <!-- loglevel -->
+  <X-PRE-PROCESS cmd="set" data="global_loglevel=info"/>
+
+  <!-- System Config -->
+  <X-PRE-PROCESS cmd="set" data="local_ip_v4=10.0.10.45"/>
+
+  <!-- Internal SIP Profile -->
+  <X-PRE-PROCESS cmd="set" data="internal_auth_calls=false"/>
+  <X-PRE-PROCESS cmd="set" data="internal_sip_port=55060"/>
+  <X-PRE-PROCESS cmd="set" data="internal_tls_port=55061"/>
+  <X-PRE-PROCESS cmd="set" data="internal_ssl_enable=false"/>
+
+  <!-- External SIP Profile -->
+  <X-PRE-PROCESS cmd="set" data="external_auth_calls=false"/>
+  <X-PRE-PROCESS cmd="set" data="external_sip_port=55080"/>
+  <X-PRE-PROCESS cmd="set" data="external_tls_port=55081"/>
+  <X-PRE-PROCESS cmd="set" data="external_ssl_enable=false"/>
+
+  <!-- RTP port range -->
+  <X-PRE-PROCESS cmd="set" data="rtp_start_port=56000"/>
+  <X-PRE-PROCESS cmd="set" data="rtp_end_port=59998"/>
+
+  <!-- Event Socket -->
+  <X-PRE-PROCESS cmd="set" data="global_event_socket_listen_ip=0.0.0.0"/>
+  <X-PRE-PROCESS cmd="set" data="global_event_socket_listen_port=58021"/>
+
+  <!-- ccIVR -->
+  <X-PRE-PROCESS cmd="set" data="global_ccivr_uri=127.0.0.1:58022"/>
+
+  <!-- sip gateway -->
+  <X-PRE-PROCESS cmd="set" data="global_sip_gateway=192.168.35.78:15060"/>
+
+  <!-- call center -->
+  <X-PRE-PROCESS cmd="set" data="global_call_center=192.168.35.88:45060"/>
+
+  <!-- self role: gwrtvd or gwsbc -->
+  <X-PRE-PROCESS cmd="set" data="global_gateway_role=gwsbc"/>
+
+  <!-- gwrtvd configurations -->
+  <X-PRE-PROCESS cmd="set" data="gwrtvd_sample_rate=8000" />	<!-- optional: 8000, 16000 -->
+  <X-PRE-PROCESS cmd="set" data="gwrtvd_vad_eos=500" />			<!-- between 200 and 1000 -->
+  <X-PRE-PROCESS cmd="set" data="gwrtvd_result_format={ &quot;event&quot;:&quot;&#36;{event}&quot;,&quot;session_key&quot;:&quot;&#36;{session_key}&quot;,&quot;unique_id&quot;:&quot;&#36;{unique_id}&quot;, &quot;direction&quot;:&quot;&#36;{direction}&quot;, &quot;external_no&quot;:&quot;&#36;{external_no}&quot;, &quot;internal_no&quot;:&quot;&#36;{internal_no}&quot;, &quot;session_begin_time&quot;:&quot;&#36;{session_begin_time}&quot;, &quot;side&quot;:&quot;&#36;{side}&quot;, &quot;index&quot;:&quot;&#36;{index}&quot;, &quot;result&quot;:&quot;&#36;{result}&quot;, &quot;begin_time&quot;:&quot;&#36;{begin_time}&quot;, &quot;elapsed_time&quot;:&quot;&#36;{elapsed_time}&quot;, &quot;finished&quot;:&quot;&#36;{finished}&quot; }" />
+  <X-PRE-PROCESS cmd="set" data="gwrtvd_enable_digitise=0" />
+  <X-PRE-PROCESS cmd="set" data="gwrtvd_enable_intermediate_result=1" />
+  <X-PRE-PROCESS cmd="set" data="gwrtvd_result_handler_uri=file://log/urtasr.log" />	<!-- file://xxx/urtasr.log or http://xxx/urtasr -->
+  <X-PRE-PROCESS cmd="set" data="gwrtvd_result_handler_num=10" />
+
+  <X-PRE-PROCESS cmd="set" data="gwrtvd_vendor=biaobei" />                         <!-- optional: forwarding, nls -->
+  <X-PRE-PROCESS cmd="set" data="gwrtvd_auth_info=client_id=12cbf4b4-76cb-45c4-8846-3da6cf793885,client_secret=MzU2Y2Q2OWItYzE3MS00NmMwLWJiMDQtM2FlODNlZjU0ZTM0" />
+                        <!-- forwarding: -->
+                        <!-- nls: access_key_id=xxx,access_key_secret=xxx -->
+  <X-PRE-PROCESS cmd="set" data="gwrtvd_ext_info=app_key=123" />
+
+
+
+  <!-- TTS configurations -->
+  <X-PRE-PROCESS cmd="set" data="tts_engine=unimrcp" />	<!-- optional: unimrcp, utts -->
+  <X-PRE-PROCESS cmd="set" data="tts_voice=智能客服_静静cc" />
+	<!-- unimrcp: -->
+	<!-- utts:forwarding: -->
+	<!-- utts:nls: xiaoyun/ruoxi/xiaogang -->
+  <X-PRE-PROCESS cmd="set" data="tts_params=speech-language=zh-CN" />
+
+	<!-- TTS:unimrcp configurations -->
+  <X-PRE-PROCESS cmd="set" data="tts_profiles=nlsmsc0"/>
+
+	<!-- TTS:utts configurations -->
+  <X-PRE-PROCESS cmd="set" data="tts_sample_rate=8000" />	<!-- optional: 8000, 16000 -->
+  <X-PRE-PROCESS cmd="set" data="tts_volume=100" />			<!-- 0~100 -->
+  <X-PRE-PROCESS cmd="set" data="tts_speed=50" />			<!-- 0~100 -->
+  <X-PRE-PROCESS cmd="set" data="tts_tone=50" />			<!-- 0~100 -->
+
+  <X-PRE-PROCESS cmd="set" data="tts_vendor=" />			<!-- optional: forwarding, nls: input by console -->
+  <X-PRE-PROCESS cmd="set" data="tts_auth_info=" />			<!-- input by console -->
+			<!-- forwarding: -->
+			<!-- nls: access_key_id=xxx,access_key_secret=xxx -->
+  <X-PRE-PROCESS cmd="set" data="tts_ext_info=" />
+			<!-- forwarding: -->
+			<!-- nls: app_key=xxx -->
+
+
+
+</include>

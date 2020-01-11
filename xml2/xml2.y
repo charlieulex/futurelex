@@ -110,10 +110,12 @@ value:	  object  		{
 	;
 %%
 
+//const struct Node def={NULL,NULL,NULL,NULL};
 
 struct Node* new_node()
 {
 	struct Node *tmp=(struct Node*)malloc(sizeof(struct Node));
+	//*tmp=def;
 	return tmp;
 }
 
