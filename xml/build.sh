@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf ./a.out
 echo ======================begin
 flex xml.l
 cc lex.yy.c -ll
