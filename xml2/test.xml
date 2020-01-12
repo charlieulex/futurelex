@@ -1,6 +1,6 @@
-<include>
+<include a="b">
     <gg>
         <!-- sdf -->
-     <asd/>
+     <asd  cmd="set" cmd2="set2" />
  </gg>
 </include>

@@ -19,6 +19,7 @@ void yyerror(const char *);
 %type<s> element
 %type<s> comm
 %type<s> sub_element
+%type<s> Attribute_0_N
 
 
 
@@ -31,13 +32,13 @@ document
   | document element
   ;
 element
-  : INF NOM SLASH SUP
+  : INF NOM Attribute_0_N SLASH SUP
   {
     printf("element %s\n",$2);
   }
-  | INF NOM SUP content INF SLASH NOM SUP
+  | INF NOM Attribute_0_N SUP content INF SLASH NOM SUP
   {
-    printf("element compote %s - %s\n",$2,$7);
+    printf("element compote %s - %s\n",$2,$8);
   }
   ;
 content
@@ -47,6 +48,15 @@ content
   ;
 sub_element
   :
+  {
+  }
+  ;
+Attribute_0_N
+  : Attribute_0_N NOM EGAL VALEUR
+  {
+    printf("attr %s %s\n",$2,$4);
+  }
+  |
   {
   }
   ;
