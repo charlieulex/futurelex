@@ -18,6 +18,7 @@ void yyerror(const char *);
 %type<s> document
 %type<s> element
 %type<s> comm
+%type<s> sub_element
 
 
 
@@ -25,26 +26,28 @@ void yyerror(const char *);
 
 document
   : comm
-  {
-
-  }
   | element
-  {
-    printf("do\n");
-  }
   | document comm
-  {
-
-  }
   | document element
-  {
-    printf("do2\n");
-  }
   ;
 element
   : INF NOM SLASH SUP
   {
     printf("element %s\n",$2);
+  }
+  | INF NOM SUP content INF SLASH NOM SUP
+  {
+    printf("element compote %s - %s\n",$2,$7);
+  }
+  ;
+content
+  : sub_element
+  | content element
+  | content comm
+  ;
+sub_element
+  :
+  {
   }
   ;
 comm
