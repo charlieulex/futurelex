@@ -34,12 +34,12 @@ struct Node* start=NULL;
 %%
 
 document: object		{
-					start=$1;
+					start=$1; printf("object\n");
 				}
 	;
 
 object: '{' members '}' 	{
-					$$ = $2;
+					$$ = $2; printf("member\n");
 				}
 	;
 
@@ -128,14 +128,14 @@ void print_tree(struct Node *tree, int t)
 	if(tree->pre)
 		{
 			pr_t(t);
-			printf("%s\n",tree->pre);
+			//printf("content [%s]\n",tree->pre);
 		}
 	if(tree->right)
 		print_tree(tree->right,t+1);
 	if(tree->post)
 		{
 			pr_t(t);
-			printf("%s\n",tree->post);
+			//printf("%s\n",tree->post);
 		}
 	if(tree->down)
 		print_tree(tree->down,t);
